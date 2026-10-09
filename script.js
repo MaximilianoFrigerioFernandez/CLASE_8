@@ -24,6 +24,7 @@ fetch(ENDPOINT)
         return respuesta.json();
     })
     .then((datos) => {
+        // Lee correctamente el objeto contenedor "data" que acabamos de configurar en el JSON
         const escuelas = datos.data;
 
         escuelas.forEach((e) => {
@@ -57,8 +58,7 @@ fetch(ENDPOINT)
         console.error("Algo salió mal:", error);
     });
 
-// Modificación según la pauta:
-// Cambiar el despliegue de cada ● por un <span> con pictograma de Bootstrap Icons
+// Función para mostrar pictogramas de Bootstrap Icons en el resumen
 function bolitas(x) {
     var visual = "";
     for (let i = 0; i < x; i++) {
