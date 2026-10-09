@@ -59,7 +59,7 @@ fetch(ENDPOINT)
 function bolitas(x) {
     var visual = "";
     for (let i = 0; i < x; i++) {
-        visual += '<span class="icono-institucion"></span>';
+        visual += '<span class="icono-institucion"><i class="bi bi-palette-fill"></i></span>';
     }
     return visual;
 }
