@@ -23,7 +23,7 @@ fetch(ENDPOINT)
         return respuesta.json();
     })
     .then((datos) => {
-        const escuelas = Array.isArray(datos.data) ? datos.data : datos.data.data;
+        const escuelas = datos.data;
 
         escuelas.forEach((e) => {
             const esAmericana = paisesAmerica.some((pais) => e.location.includes(pais));
