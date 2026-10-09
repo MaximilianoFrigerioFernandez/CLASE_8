@@ -23,7 +23,7 @@ fetch(ENDPOINT)
         return respuesta.json();
     })
     .then((datos) => {
-        const escuelas = datos.data;
+        const escuelas = datos.data.data;
 
         escuelas.forEach((e) => {
             const esAmericana = paisesAmerica.some((pais) => e.location.includes(pais));
@@ -59,7 +59,7 @@ fetch(ENDPOINT)
 function bolitas(x) {
     var visual = "";
     for (let i = 0; i < x; i++) {
-        visual += '<span class="icono-institucion"><i class="bi bi-palette-fill"></i></span>';
+        visual += '<span class="icono-institucion"></span>';
     }
     return visual;
 }
