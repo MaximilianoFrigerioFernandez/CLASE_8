@@ -2,7 +2,6 @@ const tbodyAmerica = document.querySelector("#america");
 const tbodyEuropa = document.querySelector("#europa");
 const tbodyOtros = document.querySelector("#otros");
 
-// URL pública única de tu JSON
 const ENDPOINT = "https://api.myjson.online/v1/records/d240c3b1-9062-437e-b1ba-c2dfb0a99754";
 
 const paisesAmerica = ["Argentina", "Brazil", "Canada", "Chile", "Colombia", "Mexico", "United States"];
@@ -24,8 +23,7 @@ fetch(ENDPOINT)
         return respuesta.json();
     })
     .then((datos) => {
-        // Lee correctamente el objeto contenedor "data" que acabamos de configurar en el JSON
-        const escuelas = datos.data;
+        const escuelas = Array.isArray(datos.data) ? datos.data : datos.data.data;
 
         escuelas.forEach((e) => {
             const esAmericana = paisesAmerica.some((pais) => e.location.includes(pais));
@@ -58,11 +56,10 @@ fetch(ENDPOINT)
         console.error("Algo salió mal:", error);
     });
 
-// Función para mostrar pictogramas de Bootstrap Icons en el resumen
 function bolitas(x) {
     var visual = "";
     for (let i = 0; i < x; i++) {
-        visual += '<span class="icono-institucion"><i class="bi bi-palette-fill"></i></span>';
+        visual += '<span class="icono-institucion"></span>';
     }
     return visual;
 }
